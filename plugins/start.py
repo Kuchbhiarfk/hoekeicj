@@ -736,7 +736,7 @@ async def start_command(client: Client, message: Message):
             thumbnail = item.get('cover_photo') or item.get('thumbnail')
             teachers = item['teachers']
             channel_id = item['channel_id']
-            msg_id = item['msg_id']
+            msg_id = item['channel_msg_id']
 
             temp_msg = await message.reply("𝗥𝘂𝗸 𝗘𝗸 𝗦𝗲𝗰 👽..")
             try:
@@ -1387,4 +1387,5 @@ async def delete_files(codeflix_msgs, client, message, k, delete_time=None):
         try:
             await client.delete_messages(chat_id=msg.chat.id, message_ids=[msg.id])
         except Exception as e:
+
             print(f"The attempt to delete the media {msg.id} was unsuccessful: {e}")
