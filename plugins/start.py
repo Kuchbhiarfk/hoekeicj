@@ -498,47 +498,88 @@ def generate_html_from_decrypted(decrypted_json_str: str, batch_title: str, batc
       }}
       .hidden {{ display: none !important; }}
     </style>
-</head>
-<body>
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="brand">
-        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none">
-          <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2" opacity=".9"></rect>
-          <circle cx="12" cy="12" r="3.2" fill="currentColor"></circle>
-        </svg>
-        <span>{batch_title}</span>
-      </div>
-      <div class="controls">
-        <button class="theme-toggle" aria-label="Toggle theme">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <div class="tab-bar">
-    <div class="tabs" id="tabs">
-      <button class="tab" data-target="day-wise" aria-current="true">Day Wise</button>
-      <button class="tab" data-target="teacher-wise">Teacher Wise</button>
-      <button class="tab" data-target="month-wise">Month Wise</button>
-    </div>
-  </div>
-
-  <main id="main">
-    <div class="wrap">
-{notice_html}
-{day_sections}
-{teacher_sections}
-{month_sections}
-      <footer>
-        UI built as an advanced glassmorphic demo with light/dark mode for educational purposes.
-      </footer>
-    </div>
-  </main>
-
+</head>
+
+<body>
+
+  <header class="site-header">
+
+    <div class="header-inner">
+
+      <div class="brand">
+
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none">
+
+          <rect x="3" y="3" width="18" height="18" rx="4" stroke="currentColor" stroke-width="2" opacity=".9"></rect>
+
+          <circle cx="12" cy="12" r="3.2" fill="currentColor"></circle>
+
+        </svg>
+
+        <span>{batch_title}</span>
+
+      </div>
+
+      <div class="controls">
+
+        <button class="theme-toggle" aria-label="Toggle theme">
+
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+
+          </svg>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <div class="tab-bar">
+
+    <div class="tabs" id="tabs">
+
+      <button class="tab" data-target="day-wise" aria-current="true">Day Wise</button>
+
+      <button class="tab" data-target="teacher-wise">Teacher Wise</button>
+
+      <button class="tab" data-target="month-wise">Month Wise</button>
+
+    </div>
+
+  </div>
+
+
+
+  <main id="main">
+
+    <div class="wrap">
+
+{notice_html}
+
+{day_sections}
+
+{teacher_sections}
+
+{month_sections}
+
+      <footer>
+
+        UI built as an advanced glassmorphic demo with light/dark mode for educational purposes.
+
+      </footer>
+
+    </div>
+
+  </main>
+
+
+
     <script>
       // Theme toggle
       const themeToggle = document.querySelector('.theme-toggle');
@@ -624,8 +665,10 @@ def generate_html_from_decrypted(decrypted_json_str: str, batch_title: str, batc
         }}
       }});
     </script>
-</body>
-</html>'''
+</body>
+
+</html>'''
+
     return full_html
 
 async def upload_html(client: Client, html_content: str, batch_title: str, chat_id: int, custom_caption: str = None) -> Message:
@@ -1753,4 +1796,5 @@ async def delete_files(codeflix_msgs, client, message, k, delete_time=None):
         try:
             await client.delete_messages(chat_id=msg.chat.id, message_ids=[msg.id])
         except Exception as e:
+
             print(f"The attempt to delete the media {msg.id} was unsuccessful: {e}")
