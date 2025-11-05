@@ -59,7 +59,7 @@ def encrypt_json_item(data: dict) -> str:
     encrypted_data = cipher.encrypt(padded_data)
     iv_base64 = base64.b64encode(IV).decode('utf-8')
     encrypted_base64 = base64.b64encode(encrypted_data).decode('utf-8')
-    return f"{iv_base64}:{encrypted_base64}"
+    return f"{encrypted_base64}"
 
 def decrypt_json_item(encrypted_str: str) -> dict:
     if ':' not in encrypted_str:
@@ -1145,7 +1145,7 @@ async def start_command(client: Client, message: Message):
             thumbnail = item.get('cover_photo') or item.get('thumbnail')
             teachers = item['teachers']
             channel_id = item['channel_id']
-            msg_id = item['msg_id']
+            msg_id = item['channel_msg_id']
 
             temp_msg = await message.reply("𝗥𝘂𝗸 𝗘𝗸 𝗦𝗲𝗰 👽..")
             try:
@@ -1798,3 +1798,4 @@ async def delete_files(codeflix_msgs, client, message, k, delete_time=None):
         except Exception as e:
 
             print(f"The attempt to delete the media {msg.id} was unsuccessful: {e}")
+
