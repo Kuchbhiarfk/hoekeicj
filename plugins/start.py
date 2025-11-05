@@ -1142,7 +1142,7 @@ async def start_command(client: Client, message: Message):
                 return
 
             name = item['name']
-            thumbnail = item.get('cover_photo') or item.get('thumbnail')
+            opthumbnail = item.get('cover_photo') or item.get('thumbnail')
             teachers = item['teachers']
             channel_id = item['channel_id']
             msg_id = item['channel_msg_id']
@@ -1339,7 +1339,7 @@ async def start_command(client: Client, message: Message):
                         batch_title = filename.replace('.json', '').replace('_', ' ').title()
                         try:
                             data = json.loads(decrypted_json)
-                            batch_thumbnail = data[0].get('thumbnail', 'https://via.placeholder.com/300x200?text=Catalog') if data else 'https://via.placeholder.com/300x200?text=Catalog'
+                            batch_thumbnail = data[0].get('opthumbnail', 'https://via.placeholder.com/300x200?text=Catalog') if data else 'https://via.placeholder.com/300x200?text=Catalog'
                         except:
                             batch_thumbnail = 'https://via.placeholder.com/300x200?text=Catalog'
                         html_content = generate_html_from_decrypted(decrypted_json, batch_title, batch_thumbnail)
@@ -1798,4 +1798,5 @@ async def delete_files(codeflix_msgs, client, message, k, delete_time=None):
         except Exception as e:
 
             print(f"The attempt to delete the media {msg.id} was unsuccessful: {e}")
+
 
