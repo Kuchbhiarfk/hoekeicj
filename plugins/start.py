@@ -1,5 +1,3 @@
-
-
 import random
 import os
 import asyncio
@@ -1756,5 +1754,6 @@ async def delete_files(codeflix_msgs, client, message, k, delete_time=None):
         try:
             await client.delete_messages(chat_id=msg.chat.id, message_ids=[msg.id])
         except Exception as e:
+
 
             print(f"The attempt to delete the media {msg.id} was unsuccessful: {e}")
