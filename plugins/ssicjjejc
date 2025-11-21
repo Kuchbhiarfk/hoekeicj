@@ -1800,3 +1800,4 @@ async def delete_files(codeflix_msgs, client, message, k, delete_time=None):
             print(f"The attempt to delete the media {msg.id} was unsuccessful: {e}")
 
 
+
