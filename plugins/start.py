@@ -32,7 +32,7 @@ educators_col = db["educators"]
 ENCRYPTION_KEY = bytes.fromhex('0123456789abcdef0123456789abcdef')  # 16 bytes for AES-256-CBC
 IV = b'abcdef9876543210'  # 16 bytes, raw bytes
 
-DECRYPT_URL_BASE = "https://dekhosekdop.onrender.com/op?data="
+DECRYPT_URL_BASE = "https://dekhosekdop-psll.onrender.com/op?data="
 
 # Different delete times for different access types
 BULK_DELETE_TIME = FILE_AUTO_DELETE
@@ -1798,6 +1798,7 @@ async def delete_files(codeflix_msgs, client, message, k, delete_time=None):
         except Exception as e:
 
             print(f"The attempt to delete the media {msg.id} was unsuccessful: {e}")
+
 
 
 
