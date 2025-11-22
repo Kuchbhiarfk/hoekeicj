@@ -32,7 +32,7 @@ educators_col = db["educators"]
 ENCRYPTION_KEY = bytes.fromhex('0123456789abcdef0123456789abcdef')
 IV = b'abcdef9876543210'
 
-DECRYPT_URL_BASE = "https://dekhosekd-psll.onrender.com/op?data="
+DECRYPT_URL_BASE = "https://bhundacademy-users.onrender.com/op?data="
 
 # Delete times
 BULK_DELETE_TIME = FILE_AUTO_DELETE
