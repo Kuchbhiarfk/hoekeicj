@@ -9,4 +9,4 @@ humanize
 pycryptodome
 cryptography
 pytz
-dateutil
+python-dateutil
